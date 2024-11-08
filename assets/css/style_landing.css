@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #212529;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.top-bar {
+    background-color: #F29202; /* Color borroso */
+    padding: 10px;
+    text-align: right;
+    box-shadow: #212529;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.top-bar a:hover {
+    color: #F29202;
+}
+
+.login-button {
+    display: inline-block;
+    background-color: #3B5998;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.login-button:hover {
+    background-color: #435274;
+}
+
+.logo {
+    max-width: 150px;
+    padding: 10px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #212529;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #F29202;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.call-banner {
+    background-color: #3B5998;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+}
+
+.feature-card {
+    background-color: #2c3237;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.why-choose {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.benefit {
+    text-align: center;
+    max-width: 250px;
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #4834d4;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero-section .logo {
+    max-width: none; /* Elimina cualquier límite de tamaño */
+    max-height: none; /* Elimina cualquier límite de tamaño */
+    width: 500px; /* Ajusta el tamaño que deseas */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.price-card {
+    background-color: #2c3237;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.cc {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.features-list {
+    text-align: left;
+    list-style: none;
+}
+
+.features-list li {
+    margin: 10px 0;
+}
+
+.features-list li::before {
+    content: "✓";
+    color: #F29202;
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #F29202;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
