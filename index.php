@@ -12,21 +12,33 @@ session_start();
     <div class="top-bar">
         <?php if(isset($_SESSION['nombre'])): ?>
             <span>Bienvenido, <?php echo htmlspecialchars($_SESSION['nombre']); ?> | </span>
-            <a href="php/cerrar_sesion.php">Cerrar Sesión</a>
+            <a href="includes/cerrar_sesion.php">Cerrar Sesión</a>
         <?php else: ?>
-            <a href="login.php" class="login-button">Iniciar Sesión</a>
+            <a href="auth/login.php" class="login-button">Iniciar Sesión</a>
         <?php endif; ?>
     </div>
 
     <div class="hero-section">
-        <img src="../assets/imagenes/logo.png" alt="Grúas Moto X" class="logo">
+        <!-- Video de fondo -->
+        <div class="video-background">
+            <iframe 
+                src="https://www.youtube.com/embed/-J5MU3tRzSM?autoplay=1&mute=1&loop=1&playlist=-J5MU3tRzSM&controls=0&showinfo=0" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Contenido del hero -->
+        <img src="assets/imagenes/logo.png" alt="Grúas Moto X" class="logo">
         <h1>Bienvenido a Grúas Moto X</h1>
-        <a href="solicitud_datos_personales.php" class="cta-button">Solicita servicio</a>
+        <a href="servicios/solicitud_datos_personales.php" class="cta-button">Solicita servicio</a>
     </div>
 
     <div class="call-banner">
-        Servicio 24/7 - Llama ya: +123 456 789
-    </div>
+    <img src="assets/imagenes/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+    <span class="banner-text">SERVICIO 24/7 - 311 300 00 99</span>
+</div>
+
+
 
     <div class="features">
         <div class="feature-card">
