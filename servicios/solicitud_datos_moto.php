@@ -89,7 +89,33 @@
                         <button type="button" class="detalles-btn">Detalles costo</button>
                     </div>
 
-                    <button type="submit" class="solicitar-btn">Solicitar</button>
+                    <!-- Incluye el SDK de PayPal -->
+                    <script src="https://www.paypal.com/sdk/js?client-id=AeX8WrSw9eQESLGIUsXeKVy0s75HBrll8dNaXpzOco1BKisPWUngFAAX4DfAfPZQpW74yDg9VDJjfSoB&currency=USD"></script>
+
+                    <!-- Contenedor para centrar los botones -->
+                    <div class="button-container">
+                        <!-- Botón de Solicitar -->
+                        <button type="submit" class="solicitar-btn">Solicitar</button>
+
+                        <!-- Contenedor para el botón de PayPal -->
+                        <div id="paypal-button-container"></div>
+                    </div>
+
+                    <script>
+                        //Renderiza el botón de PayPal en #paypal-button-container
+                        paypal.Buttons({
+                            createOrder: function(data, actions){
+                                return actions.order.create({
+                                    purchase_units: [{
+                                        amount: {
+                                            value: 19.49 //Precio a pagar
+                                        }
+                                    }]
+                                })
+                            }
+                        }
+                        ).render('#paypal-button-container');
+                    </script>
                 </form>
             </div>
         </div>
