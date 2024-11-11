@@ -95,7 +95,7 @@
                     <!-- Contenedor para centrar los botones -->
                     <div class="button-container">
                         <!-- Botón de Solicitar -->
-                        <button type="submit" class="solicitar-btn">Solicitar</button>
+                        <button type="submit" class="solicitar-btn">SOLICITAR</button>
 
                         <!-- Contenedor para el botón de PayPal -->
                         <div id="paypal-button-container"></div>
@@ -104,17 +104,18 @@
                     <script>
                         //Renderiza el botón de PayPal en #paypal-button-container
                         paypal.Buttons({
-                            createOrder: function(data, actions){
-                                return actions.order.create({
-                                    purchase_units: [{
-                                        amount: {
-                                            value: 19.49 //Precio a pagar
-                                        }
-                                    }]
-                                })
-                            }
+                        style: {
+                            layout: 'horizontal',
+                            height: 50  // Ajusta la altura según el botón "Solicitar"
+                        },
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: { value: '19.49' }
+                                }]
+                            });
                         }
-                        ).render('#paypal-button-container');
+                    }).render('#paypal-button-container');
                     </script>
                 </form>
             </div>
