@@ -1,5 +1,5 @@
 <?php
-session_start(); // Mantenemos esto por si el usuario está logueado
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -8,12 +8,31 @@ session_start(); // Mantenemos esto por si el usuario está logueado
     <title>Solicitud de Servicio - Grúas Moto X</title>
     <link rel="stylesheet" href="../assets/css/style_solicitud.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .suggestions {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+        .suggestion-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
     <div class="back-button">
         <a href="../index.php">← Back</a>
     </div>
-
 
     <div class="progress-steps">
         <div class="step active">1</div>
@@ -56,22 +75,6 @@ session_start(); // Mantenemos esto por si el usuario está logueado
                     <input type="text" name="cedula" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="direccion">Dirección Actual</label>
-                    <div class="location-input">
-                        <span class="location-icon">📍</span>
-                        <input type="text" name="direccion" placeholder="Medellín, El poblado" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="destino">Destino</label>
-                    <div class="location-input">
-                        <span class="location-icon">📍</span>
-                        <input type="text" name="destino" placeholder="Bello, Calle Vieja" required>
-                    </div>
-                </div>
-
                 <button type="submit" class="siguiente-btn">Siguiente</button>
             </form>
         </div>
@@ -98,5 +101,7 @@ session_start(); // Mantenemos esto por si el usuario está logueado
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

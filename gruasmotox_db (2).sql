@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2024 at 09:06 PM
+-- Generation Time: Nov 13, 2024 at 03:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,6 +34,14 @@ CREATE TABLE `motivo` (
   `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `motivo`
+--
+
+INSERT INTO `motivo` (`id`, `descripcion`) VALUES
+(1, 'traslado_punto'),
+(2, 'traslado_punto');
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +58,14 @@ CREATE TABLE `moto` (
   `placa` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `moto`
+--
+
+INSERT INTO `moto` (`id`, `usuario_id`, `tipo`, `cilindraje`, `marca`, `soat`, `placa`) VALUES
+(1, 1, 'Adventure', 1000, 'yamaha', 0, 'LYW69C'),
+(3, 1, 'Sport', 1000, 'yamaha', 0, 'LYW696');
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +80,14 @@ CREATE TABLE `pago` (
   `fecha_pago` datetime DEFAULT NULL,
   `estado_pago` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pago`
+--
+
+INSERT INTO `pago` (`id`, `servicio_id`, `metodo_pago`, `monto`, `fecha_pago`, `estado_pago`) VALUES
+(1, 1, 'Efectivo', 0.00, '2024-11-13 02:11:49', 'Pendiente'),
+(2, 2, 'Efectivo', 0.00, '2024-11-13 02:12:30', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -98,11 +122,18 @@ CREATE TABLE `servicio` (
   `tipo_servicio_id` int(11) NOT NULL,
   `ubicacion_actual` varchar(255) DEFAULT NULL,
   `destino` varchar(255) DEFAULT NULL,
-  `motivo_id` int(11) DEFAULT NULL,
   `costo_estimado` decimal(10,2) DEFAULT NULL,
   `fecha_solicitud` datetime NOT NULL,
   `estado` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `servicio`
+--
+
+INSERT INTO `servicio` (`id`, `usuario_id`, `moto_id`, `tipo_servicio_id`, `ubicacion_actual`, `destino`, `costo_estimado`, `fecha_solicitud`, `estado`) VALUES
+(1, 1, 1, 1, '', '', 0.00, '2024-11-13 02:11:49', 'Pendiente'),
+(2, 1, 3, 1, '', '', 0.00, '2024-11-13 02:12:30', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -115,6 +146,15 @@ CREATE TABLE `tipo_servicio` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tipo_servicio`
+--
+
+INSERT INTO `tipo_servicio` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Traslado estándar', 'Servicio de traslado de moto de un punto a otro'),
+(2, 'Emergencia', 'Servicio de emergencia con atención prioritaria'),
+(3, 'Traslado concesionario', 'Traslado especial desde o hacia concesionario');
 
 -- --------------------------------------------------------
 
@@ -181,8 +221,7 @@ ALTER TABLE `servicio`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuario_id` (`usuario_id`),
   ADD KEY `moto_id` (`moto_id`),
-  ADD KEY `tipo_servicio_id` (`tipo_servicio_id`),
-  ADD KEY `motivo_id` (`motivo_id`);
+  ADD KEY `tipo_servicio_id` (`tipo_servicio_id`);
 
 --
 -- Indexes for table `tipo_servicio`
@@ -207,19 +246,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `motivo`
 --
 ALTER TABLE `motivo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `moto`
 --
 ALTER TABLE `moto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pago`
 --
 ALTER TABLE `pago`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `rol`
@@ -231,13 +270,13 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT for table `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tipo_servicio`
 --
 ALTER TABLE `tipo_servicio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -267,8 +306,7 @@ ALTER TABLE `pago`
 ALTER TABLE `servicio`
   ADD CONSTRAINT `servicio_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `servicio_ibfk_2` FOREIGN KEY (`moto_id`) REFERENCES `moto` (`id`),
-  ADD CONSTRAINT `servicio_ibfk_3` FOREIGN KEY (`tipo_servicio_id`) REFERENCES `tipo_servicio` (`id`),
-  ADD CONSTRAINT `servicio_ibfk_4` FOREIGN KEY (`motivo_id`) REFERENCES `motivo` (`id`);
+  ADD CONSTRAINT `servicio_ibfk_3` FOREIGN KEY (`tipo_servicio_id`) REFERENCES `tipo_servicio` (`id`);
 
 --
 -- Constraints for table `usuario`
