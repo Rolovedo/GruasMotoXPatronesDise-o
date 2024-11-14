@@ -115,4 +115,39 @@ class ServiceHandler {
             });
         }
     }
+
+    updatePrice() {
+        const cilindrajeInput = document.querySelector('input[name="cilindraje"]');
+        const cylinderCapacity = parseInt(cilindrajeInput?.value || 0);
+        const price = this.priceCalculator.calculatePrice(this.lastDistance, cylinderCapacity);
+    
+        document.getElementById('distance').textContent = `${this.lastDistance} km`;
+        document.getElementById('estimated-price').textContent = this.priceCalculator.formatPrice(price);
+    
+        // Actualizar el campo oculto con el precio calculado
+        const costoTotalInput = document.getElementById('costo_total');
+        if (costoTotalInput) {
+            costoTotalInput.value = price;
+        }
+    
+        // Mostrar el precio en la sección total
+        const priceElement = document.querySelector('.total-section .price');
+        if (priceElement) {
+            priceElement.textContent = this.priceCalculator.formatPrice(price);
+        }
+    
+        // Actualizar el precio en el botón de PayPal
+        const paypalButton = document.getElementById('paypal-button');
+        if (paypalButton) {
+            paypalButton.setAttribute('data-amount', price);  // O ajusta según la configuración de tu botón
+        }
+    
+        console.log('Precio actualizado:', {
+            distancia: this.lastDistance,
+            cilindraje: cylinderCapacity,
+            precioTotal: price,
+            precioFormateado: this.priceCalculator.formatPrice(price)
+        });
+    }
+    
 } 
