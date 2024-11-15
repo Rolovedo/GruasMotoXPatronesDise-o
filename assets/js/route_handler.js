@@ -55,6 +55,8 @@ class RouteHandler {
 
             const address = await this.getAddressFromCoordinates(e.latlng.lat, e.latlng.lng);
             document.getElementById('direccion_actual').value = address;
+
+            sessionStorage.setItem('direccionActual', address);
             
             this.currentStep = 'destination';
             this.statusElement.textContent = 'Seleccione el punto de destino';
@@ -72,6 +74,8 @@ class RouteHandler {
 
             const address = await this.getAddressFromCoordinates(e.latlng.lat, e.latlng.lng);
             document.getElementById('direccion_destino').value = address;
+
+            sessionStorage.setItem('direccionDestino', address);
             
             this.currentStep = 'pickup';
             this.statusElement.textContent = 'Ruta establecida';

@@ -18,6 +18,8 @@
         <div class="step">1</div>
         <div class="step-line"></div>
         <div class="step active">2</div>
+        <div class="step-line"></div>
+        <div class="step">3</div>
     </div>
 
     <div class="form-container moto-form">
@@ -148,94 +150,25 @@
                     </div>
 
                     <script src="https://www.paypal.com/sdk/js?client-id=AeX8WrSw9eQESLGIUsXeKVy0s75HBrll8dNaXpzOco1BKisPWUngFAAX4DfAfPZQpW74yDg9VDJjfSoB&currency=USD"></script>
-
-                    <div class="button-container">
-                        <button type="submit" class="solicitar-btn">SOLICITAR</button>
-                        <div id="paypal-button-container"></div>
-                    </div>
-
-                    <script>
-                        paypal.Buttons({
-                        style: {
-                            layout: 'horizontal',
-                            height: 50
-                        },
-                        createOrder: function(data, actions) {
-                            // Obtener el precio dinámico del elemento con id 'costo_total'
-                            const amount = document.getElementById('costo_total').value;
-                            
-                            return actions.order.create({
-                                purchase_units: [{
-                                    amount: { value: amount }
-                                }]
-                            });
-                        }
-                    }).render('#paypal-button-container');
-                    </script>
+                    
+                    <form action="tracking.php" method="post">
+                        <div class="button-container">
+                            <button type="submit" class="solicitar-btn">SOLICITAR</button>
+                            <div id="paypal-button-container"></div>
+                        </div>
+                    </form>
+                </form>
+                <form action="tracking.php" method="post">
+                    <button type="submit" class="solicitar-btn">Siguiente</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <style>
-        .suggestions {
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            width: 100%;
-            max-height: 150px;
-            overflow-y: auto;
-            display: none;
-            z-index: 1000;
-        }
-        .suggestion-item {
-            padding: 8px;
-            cursor: pointer;
-        }
-        .suggestion-item:hover {
-            background-color: #f0f0f0;
-        }
-        .map-container {
-            padding: 15px;
-            background: #1E1E1E;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .route-info {
-            background: #2C2C2C;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-        }
-        .info-item {
-            display: flex;
-            gap: 10px;
-            color: white;
-        }
-        .location-status {
-            color: white;
-            background: #2C2C2C;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        #map {
-            height: 300px;
-            border-radius: 8px;
-            z-index: 1;
-        }
-        .leaflet-control-container .leaflet-routing-container-hide {
-            display: none;
-        }
-    </style>
-
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
     <script src="../assets/js/map_config.js"></script>
+    <script src="../assets/js/paypal_buttons.js"></script>
     <script src="../assets/js/price_calculator.js"></script>
     <script src="../assets/js/route_handler.js"></script>
 
