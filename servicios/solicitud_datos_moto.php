@@ -147,27 +147,33 @@
                         <button type="button" class="detalles-btn">Detalles costo</button>
                     </div>
 
+                    <!-- Incluye el SDK de PayPal -->
                     <script src="https://www.paypal.com/sdk/js?client-id=AeX8WrSw9eQESLGIUsXeKVy0s75HBrll8dNaXpzOco1BKisPWUngFAAX4DfAfPZQpW74yDg9VDJjfSoB&currency=USD"></script>
 
+                    <!-- Contenedor para centrar los botones -->
                     <div class="button-container">
+                        <!-- Botón de Solicitar -->
                         <button type="submit" class="solicitar-btn">SOLICITAR</button>
+
+                        <!-- Contenedor para el botón de PayPal -->
                         <div id="paypal-button-container"></div>
                     </div>
 
                     <script>
+                        //Renderiza el botón de PayPal en #paypal-button-container
                         paypal.Buttons({
-                            style: {
-                                layout: 'horizontal',
-                                height: 50
-                            },
-                            createOrder: function(data, actions) {
-                                return actions.order.create({
-                                    purchase_units: [{
-                                        amount: { value: '19.49' }
-                                    }]
-                                });
-                            }
-                        }).render('#paypal-button-container');
+                        style: {
+                            layout: 'horizontal',
+                            height: 50  // Ajusta la altura según el botón "Solicitar"
+                        },
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: { value: '19.49' }
+                                }]
+                            });
+                        }
+                    }).render('#paypal-button-container');
                     </script>
                 </form>
             </div>

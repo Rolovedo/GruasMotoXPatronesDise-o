@@ -163,6 +163,17 @@ body {
     font-weight: bold;
 }
 
+#paypal-button-container {
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
 .detalles-btn {
     background: transparent;
     border: none;
