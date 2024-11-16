@@ -1,12 +1,22 @@
 <?php
-//session_start();
-//include '../includes/conexion_db.php';
+session_start();
 
-//if (!isset($_SESSION['usuario_id'])) {
-  //  header('Location: ../auth/login.php');
-    //exit();
-//}
+// Verificar si se recibieron las variables de sesión
+$marca = $_SESSION['marca'] ?? '';
+$placa = $_SESSION['placa'] ?? '';
+$tipo_servicio = $_SESSION['tipo_servicio'] ?? ''; // Ahora contiene el texto descriptivo
+$direccion_actual = $_SESSION['direccion_actual'] ?? '';
+$direccion_destino = $_SESSION['direccion_destino'] ?? '';
 ?>
+<script>
+    // Guardar datos en sessionStorage
+    sessionStorage.setItem('marcaMoto', "<?php echo $marca; ?>");
+    sessionStorage.setItem('placaMoto', "<?php echo $placa; ?>");
+    sessionStorage.setItem('tipoServicio', "<?php echo $tipo_servicio; ?>");
+    sessionStorage.setItem('direccionActual', "<?php echo $direccion_actual; ?>");
+    sessionStorage.setItem('direccionDestino', "<?php echo $direccion_destino; ?>");
+</script>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -51,8 +61,8 @@
             <!-- Información del servicio -->
             <div class="info-section">
                 <div class="info-item"><i class="fas fa-user icon"></i><span>Conductor: Alfredo - 311-30000-99</span></div>
-                <div class="info-item"><i class="fas fa-truck icon"></i><span>Grúa: (Marca) - STC430</span></div>
-                <div class="info-item"><i class="fas fa-cogs icon"></i><span id='info-servicio'>Servicio: (tipo de servicio)</span></div>
+                <div class="info-item"><i class="fas fa-truck icon"></i><span>Grúa: Chana - STC430</span></div>
+                <div class="info-item"><i class="fas fa-cogs icon"></i><span id='info-servicio'>Servicio: </span></div>
                 <div class="info-item"><i class="fas fa-motorcycle icon"></i><span id='info-moto'>Moto: (nombre moto) - (placa)</span></div>
             </div>
         </div>

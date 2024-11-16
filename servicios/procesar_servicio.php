@@ -20,21 +20,28 @@ try {
     $destino = mysqli_real_escape_string($conexion, $_POST['destino']);
     $costo_total = mysqli_real_escape_string($conexion, $_POST['costo_total']);
 
-    // Determinar el tipo_servicio_id basado en el motivo
-    $motivo = $_POST['motivo'];
-    switch($motivo) {
-        case 'traslado_punto':
-            $tipo_servicio_id = 1; // Traslado estándar
-            break;
-        case 'emergencia':
-            $tipo_servicio_id = 2; // Emergencia
-            break;
-        case 'traslado_agencia':
-            $tipo_servicio_id = 3; // Traslado concesionario
-            break;
-        default:
-            $tipo_servicio_id = 1; // Por defecto, traslado estándar
-    }
+    // Determinar el tipo_servicio_id y el texto basado en el motivo
+$motivo = $_POST['motivo'];
+switch($motivo) {
+    case 'traslado_punto':
+        $tipo_servicio_id = 1;
+        $tipo_servicio_texto = 'Traslado de un punto A a un punto B';
+        break;
+    case 'emergencia':
+        $tipo_servicio_id = 2;
+        $tipo_servicio_texto = 'Emergencia';
+        break;
+    case 'traslado_agencia':
+        $tipo_servicio_id = 3;
+        $tipo_servicio_texto = 'Traslado de una agencia o concesionario';
+        break;
+    default:
+        $tipo_servicio_id = 1;
+        $tipo_servicio_texto = 'Traslado de un punto A a un punto B';
+}
+
+// Guardar el texto del servicio en una variable de sesión
+$_SESSION['tipo_servicio'] = $tipo_servicio_texto;
 
     // Iniciar transacción
     $conexion->begin_transaction();
