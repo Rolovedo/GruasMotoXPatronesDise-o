@@ -3,8 +3,8 @@
 //include '../includes/conexion_db.php';
 
 //if (!isset($_SESSION['usuario_id'])) {
-    //header('Location: ../auth/login.php');
-  //  exit();
+  //  header('Location: ../auth/login.php');
+    //exit();
 //}
 ?>
 
@@ -20,6 +20,10 @@
 </head>
 
 <body>
+
+    <div class="back-button">
+        <a href="../index.php">← Back</a>
+    </div>
 
     <!-- Indicador de pasos (Progress steps) -->
     <div class="progress-steps">
@@ -46,10 +50,10 @@
 
             <!-- Información del servicio -->
             <div class="info-section">
-                <div class="info-item"><i class="fas fa-user icon"></i><span>Conductor: (nombre) - (número de contacto)</span></div>
-                <div class="info-item"><i class="fas fa-truck icon"></i><span>Grúa: (Marca) - (placa)</span></div>
-                <div class="info-item"><i class="fas fa-cogs icon"></i><span>Servicio: (tipo de servicio)</span></div>
-                <div class="info-item"><i class="fas fa-motorcycle icon"></i><span>Moto: (nombre moto) - (placa)</span></div>
+                <div class="info-item"><i class="fas fa-user icon"></i><span>Conductor: Alfredo - 311-30000-99</span></div>
+                <div class="info-item"><i class="fas fa-truck icon"></i><span>Grúa: (Marca) - STC430</span></div>
+                <div class="info-item"><i class="fas fa-cogs icon"></i><span id='info-servicio'>Servicio: (tipo de servicio)</span></div>
+                <div class="info-item"><i class="fas fa-motorcycle icon"></i><span id='info-moto'>Moto: (nombre moto) - (placa)</span></div>
             </div>
         </div>
 

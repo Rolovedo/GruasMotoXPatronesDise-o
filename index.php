@@ -1,5 +1,11 @@
 <?php
+require_once 'includes/config.php';
 session_start();
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ../auth/login.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

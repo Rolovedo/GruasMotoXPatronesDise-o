@@ -158,9 +158,6 @@
                         </div>
                     </form>
                 </form>
-                <form action="tracking.php" method="post">
-                    <button type="submit" class="solicitar-btn">Siguiente</button>
-                </form>
             </div>
         </div>
     </div>
