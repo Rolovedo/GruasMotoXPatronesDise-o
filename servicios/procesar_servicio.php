@@ -10,6 +10,13 @@ try {
 
     $usuario_id = $_SESSION['usuario_id'];
 
+    // Capturar datos del formulario
+    $_SESSION['marca'] = $_POST['marca'] ?? '';
+    $_SESSION['placa'] = $_POST['placa'] ?? '';
+    $_SESSION['tipo_servicio'] = $_POST['tipo_servicio'] ?? '';
+    $_SESSION['direccion_actual'] = $_POST['ubicacion'] ?? '';
+    $_SESSION['direccion_destino'] = $_POST['destino'] ?? '';
+
     // Obtener datos del formulario
     $tipo_moto = mysqli_real_escape_string($conexion, $_POST['tipo_moto']);
     $cilindraje = mysqli_real_escape_string($conexion, $_POST['cilindraje']);
@@ -117,4 +124,8 @@ $_SESSION['tipo_servicio'] = $tipo_servicio_texto;
 }
 
 $conexion->close();
+
+// Redirigir al archivo tracking.php
+header("Location: tracking.php");
+exit();
 ?> 
