@@ -27,6 +27,11 @@ $direccion_destino = $_SESSION['direccion_destino'] ?? '';
     <link rel="stylesheet" href="../assets/css/style_tracking.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
 </head>
 
 <body>
@@ -67,20 +72,33 @@ $direccion_destino = $_SESSION['direccion_destino'] ?? '';
             </div>
         </div>
 
-        <!-- Sección derecha con la imagen de rastreo y botones -->
+        <!-- Sección derecha con el mapa y botones -->
         <div class="right-section">
-            <h2>Ubicación en tiempo real del servicio</h2>
-            <img src="../assets/imagenes/ubicacion.png" alt="Mockup de ubicación en tiempo real" class="tracking-image">
-
+            <div class="map-container">
+                <div id="tracking-map"></div>
+                <div class="location-status">
+                    <span id="distance">Calculando distancia...</span>
+                    <span id="eta">Tiempo estimado: Calculando...</span>
+                </div>
+            </div>
             <div class="button-group">
-                <button class="update-button">Actualizar</button>
-                <button class="cancel-button">Cancelar</button>
+                <button class="update-button">Actualizar Estado</button>
+                <button class="cancel-button">Cancelar Servicio</button>
             </div>
         </div>
     </div>
 
      <!-- Incluir el archivo JS -->
      <script src="../assets/js/update_route.js"></script>
+     <script src="../assets/js/tracking_map.js"></script>
+     <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         const trackingMap = new TrackingMap();
+         
+         // Simular un punto de destino (reemplazar con las coordenadas reales del servicio)
+         trackingMap.setDestination(6.2442, -75.5812);
+     });
+     </script>
 
 </body>
 </html>
