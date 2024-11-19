@@ -9,25 +9,6 @@ session_start();
     <link rel="stylesheet" href="../assets/css/style_solicitud.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        .suggestions {
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            width: 100%;
-            max-height: 150px;
-            overflow-y: auto;
-            display: none;
-            z-index: 1000;
-        }
-        .suggestion-item {
-            padding: 8px;
-            cursor: pointer;
-        }
-        .suggestion-item:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
 </head>
 <body>
     <div class="back-button">
@@ -38,6 +19,8 @@ session_start();
         <div class="step active">1</div>
         <div class="step-line"></div>
         <div class="step">2</div>
+        <div class="step-line"></div>
+        <div class="step">3</div>
     </div>
 
     <div class="form-container">
