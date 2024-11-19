@@ -1,11 +1,15 @@
 <?php
-//session_start();
-//include '../includes/conexion_db.php';
+session_start();
+include '../includes/conexion_db.php';
+include '../includes/service_info.php';
 
-//if (!isset($_SESSION['usuario_id'])) {
-    //header('Location: ../auth/login.php');
-  //  exit();
-//}
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: ../auth/login.php');
+    exit();
+}
+
+$usuario_id = $_SESSION['usuario_id'];
+$servicio = obtenerInformacionServicio($conexion, $usuario_id);
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +21,11 @@
     <link rel="stylesheet" href="../assets/css/style_tracking.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
 </head>
 
 <body>
@@ -45,28 +54,36 @@
             </div>
 
             <!-- Información del servicio -->
-            <div class="info-section">
-                <div class="info-item"><i class="fas fa-user icon"></i><span>Conductor: (nombre) - (número de contacto)</span></div>
-                <div class="info-item"><i class="fas fa-truck icon"></i><span>Grúa: (Marca) - (placa)</span></div>
-                <div class="info-item"><i class="fas fa-cogs icon"></i><span>Servicio: (tipo de servicio)</span></div>
-                <div class="info-item"><i class="fas fa-motorcycle icon"></i><span>Moto: (nombre moto) - (placa)</span></div>
-            </div>
+            <?php echo mostrarInformacionServicio($servicio); ?>
         </div>
 
-        <!-- Sección derecha con la imagen de rastreo y botones -->
+        <!-- Sección derecha con el mapa y botones -->
         <div class="right-section">
-            <h2>Ubicación en tiempo real del servicio</h2>
-            <img src="../assets/imagenes/ubicacion.png" alt="Mockup de ubicación en tiempo real" class="tracking-image">
-
+            <div class="map-container">
+                <div id="tracking-map"></div>
+                <div class="location-status">
+                    <span id="distance">Calculando distancia...</span>
+                    <span id="eta">Tiempo estimado: Calculando...</span>
+                </div>
+            </div>
             <div class="button-group">
-                <button class="update-button">Actualizar</button>
-                <button class="cancel-button">Cancelar</button>
+                <button class="update-button">Actualizar Estado</button>
+                <button class="cancel-button">Cancelar Servicio</button>
             </div>
         </div>
     </div>
 
      <!-- Incluir el archivo JS -->
      <script src="../assets/js/update_route.js"></script>
+     <script src="../assets/js/tracking_map.js"></script>
+     <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         const trackingMap = new TrackingMap();
+         
+         // Simular un punto de destino (reemplazar con las coordenadas reales del servicio)
+         trackingMap.setDestination(6.2442, -75.5812);
+     });
+     </script>
 
 </body>
 </html>

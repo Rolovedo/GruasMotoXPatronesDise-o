@@ -43,7 +43,7 @@
                         title: 'Error',
                         text: 'Correo o documento incorrectos'
                     }).then(function() {
-                        window.location = '../login.php';
+                        window.location = 'login.php';
                     });
                 </script>
                 <?php
