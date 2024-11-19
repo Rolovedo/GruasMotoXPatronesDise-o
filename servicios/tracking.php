@@ -87,7 +87,9 @@ $direccion_destino = $_SESSION['direccion_destino'] ?? '6.2500, -75.6000'; // Co
             </div>
             <div class="button-group">
                 <button class="update-button">Actualizar Estado</button>
-                <button class="cancel-button">Cancelar Servicio</button>
+                <form id="cancelForm" action="../includes/cancelar_servicio.php" method="post">
+                    <button type='submit' class="cancel-button">Cancelar Servicio</button>
+                </form>
             </div>
         </div>
     </div>
