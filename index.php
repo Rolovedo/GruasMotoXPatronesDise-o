@@ -22,6 +22,13 @@ if (!isset($_SESSION['usuario_id'])) {
         <?php else: ?>
             <a href="auth/login.php" class="login-button">Iniciar Sesión</a>
         <?php endif; ?>
+        <?php if (isset($_SESSION['usuario_id'])): ?>
+            <div class="mis-servicios-btn">
+                <a href="servicios/mis_servicios.php" class="btn-historial">
+                    <i class="fas fa-history"></i> Mis Servicios
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 
     <div class="hero-section">

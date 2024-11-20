@@ -22,6 +22,9 @@ body {
     width: 100%;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .top-bar span {
@@ -364,5 +367,32 @@ footer p {
         max-width: 100%;
         height: auto;
     }
+}
+
+.mis-servicios-btn {
+    margin-right: auto;
+}
+
+.btn-historial {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: #2d3436;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-historial:hover {
+    background-color: #ffffff;
+    color: #F29202;
+    transform: translateY(-2px);
+}
+
+.btn-historial i {
+    font-size: 16px;
 }
 
