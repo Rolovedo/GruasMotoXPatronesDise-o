@@ -16,14 +16,20 @@
     $documento = isset($_POST['documento']) ? mysqli_real_escape_string($conexion, $_POST['documento']) : '';
     $rol_id = 1;
 
-    // Verificar que todos los campos estén completos
     if ($nombre && $apellido && $correo && $telefono && $tipodocumento && $documento) {
-        // Preparar la consulta SQL
+        // Preparar la consulta
         $query = "INSERT INTO usuario (nombre, apellido, correo, telefono, tipodocumento, documento, rol_id) 
-                  VALUES ('$nombre', '$apellido', '$correo', '$telefono', '$tipodocumento', '$documento', $rol_id)";
-
-        // Ejecutar la consulta
-        $ejecutar = mysqli_query($conexion, $query);
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+        // Preparar la sentencia
+        $stmt = mysqli_prepare($conexion, $query);
+    
+        // Vincular los parámetros
+        mysqli_stmt_bind_param($stmt, 'ssssssi', $nombre, $apellido, $correo, $telefono, $tipodocumento, $documento, $rol_id);
+    
+        // Ejecutar la sentencia
+        $ejecutar = mysqli_stmt_execute($stmt);
+    
 
         if ($ejecutar) {
             ?>

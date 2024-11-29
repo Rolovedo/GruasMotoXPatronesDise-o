@@ -39,10 +39,17 @@
                     <input type="text" placeholder="Apellido" name="apellido">
                     <input type="correo" placeholder="Correo Electrónico" name="correo">
                     <input type="text" placeholder="Número de Teléfono" name="telefono">
-                    <input type="text" placeholder="Tipo de Documento" name="tipodocumento">
+                    <select name="tipodocumento" required>
+                        <option value="" disabled selected>Seleccione tipo de documento</option>
+                        <option value="CC">Cédula de ciudadanía</option>
+                        <option value="TI">Tarjeta de identidad</option>
+                        <option value="CE">Cédula de extranjería</option>
+                        <option value="PP">Pasaporte</option>
+                        <option value="CT">Contraseña</option>
+                    </select>
                     <input type="text" placeholder="Documento" name="documento">
                     <button>Registrarse</button>
-                </form> <!-- Aquí cierro el formulario correctamente -->
+                </form> 
             </div>
         </div>
     </main>
