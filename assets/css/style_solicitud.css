@@ -1,0 +1,407 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1E1E1E;
+    color: white;
+    min-height: 100vh;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.progress-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2A2B2C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.step.active {
+    background: #F29202;
+}
+
+.step-line {
+    width: 100px;
+    height: 2px;
+    background: #2A2B2C;
+}
+
+/* Estilos para el formulario de moto */
+.moto-form {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+}
+
+.motos-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.moto-icon {
+    width: 500px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+
+.motivos-section {
+    margin-top: 40px;
+}
+
+.motivos-section h3 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.motivo-option {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.service-request-card {
+    background: #1E2122;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+}
+
+.service-request-card h2 {
+    color: #F29202;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #2A2B2C;
+    color: white;
+}
+
+.phone-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.phone-input select {
+    width: 90px;
+    min-width: auto;
+    flex: 0 0 auto;
+    padding: 12px;
+    background-color: #2A2B2C;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.phone-input input {
+    flex: 1;
+    padding: 12px;
+    background-color: #2A2B2C;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.total-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+    color: white;
+}
+
+.price {
+    color: #F29202;
+    font-weight: bold;
+}
+
+#paypal-button-container {
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.detalles-btn {
+    background: transparent;
+    border: none;
+    color: #F29202;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.solicitar-btn {
+    width: 100%;
+    padding: 12px;
+    background: #F29202;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.solicitar-btn:hover {
+    background: #ff9f1a;
+}
+.siguiente-btn {
+    width: 100%;
+    padding: 12px;
+    background: #F29202;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.siguiente-btn:hover {
+    background: #ff9f1a;
+}
+.contact-info {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+}
+
+.contact-details {
+    color: white;
+    font-size: 14px;
+}
+
+.contact-details p {
+    margin: 5px 0;
+}
+
+/* Estilos para los radio buttons */
+input[type="radio"] {
+    accent-color: #F29202;
+    width: 18px;
+    height: 18px;
+}
+
+/* Estilos para la sección de información */
+.form-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.form-section {
+    flex: 1;
+}
+
+.form-section h2 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grua-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #2A2A2A;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.feature .icon {
+    font-size: 20px;
+}
+
+.suggestions {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+}
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+.map-container {
+    padding: 15px;
+    background: #1E1E1E;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+.route-info {
+    background: #2C2C2C;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.info-item {
+    display: flex;
+    gap: 10px;
+    color: white;
+}
+.location-status {
+    color: white;
+    background: #2C2C2C;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#map {
+    height: 300px;
+    border-radius: 8px;
+    z-index: 1;
+}
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+    
+    .form-section {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+}
+
+.suggestions {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+}
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mejoras visuales adicionales */
+.form-group input::placeholder {
+    color: #666;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #F29202;
+}
+
+.siguiente-btn:hover {
+    background-color: #ff9f1a;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.location-input {
+    position: relative;
+}
+
+.location-input input {
+    padding-left: 40px;
+}
+
+.location-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+} 
