@@ -6,7 +6,7 @@
 <body>
 
 <?php
-session_start(); // Asegúrate de que la sesión esté iniciada
+session_start(); // Asegúrate de que la sesión este iniciada
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
